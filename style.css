@@ -1282,30 +1282,37 @@ footer {
    Light Mode Overrides
    ========================================================================== */
 [data-theme="light"] {
-  --bg-primary: #f5f7fa;
-  --bg-secondary: #e8ecf1;
-  --bg-card: rgba(255, 255, 255, 0.75);
-  --bg-card-hover: rgba(255, 255, 255, 0.92);
+  --bg-primary: #eef3f8;      /* Soft blue-gray background */
+  --bg-secondary: #f5f8fc;    /* Section background */
+  --bg-card: #ffffff;         /* Card background */
+  --bg-card-hover: #ffffff;
+  
+  --text-primary: #102033;    /* Dark navy text */
+  --text-secondary: #52657a;  /* Muted slate blue/gray text */
+  --text-muted: #788b9f;     /* Softer muted text */
+  
+  --accent: #00aeea;         /* Electric cyan/blue */
+  --accent-glow: #00c0f8;
+  --accent-rgb: 0, 174, 234;
+  
+  --accent-gradient: linear-gradient(135deg, #00aeea 0%, #38bdf8 100%);
+  --text-gradient: linear-gradient(135deg, #102033 30%, #00aeea 100%);
+  
+  --border: #d5e1ec;         /* Soft blue-gray border */
+  --border-hover: rgba(0, 174, 234, 0.3);
+  --border-focus: rgba(0, 174, 234, 0.45);
+  
+  --shadow-sm: 0 1px 3px rgba(31, 56, 88, 0.06);
+  --shadow-md: 0 4px 12px rgba(31, 56, 88, 0.1);
+  --shadow-lg: 0 10px 25px rgba(31, 56, 88, 0.12);
+  --shadow-glow: 0 0 20px rgba(0, 174, 234, 0.08);
+}
 
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
-
-  --accent: #0284c7;
-  --accent-glow: #0ea5e9;
-  --accent-rgb: 2, 132, 199;
-
-  --accent-gradient: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
-  --text-gradient: linear-gradient(135deg, #0f172a 30%, #0284c7 100%);
-
-  --border: rgba(15, 23, 42, 0.08);
-  --border-hover: rgba(2, 132, 199, 0.3);
-  --border-focus: rgba(2, 132, 199, 0.45);
-
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.04);
-  --shadow-glow: 0 0 20px rgba(2, 132, 199, 0.1);
+/* Light mode alternating section background colors */
+[data-theme="light"] #experience,
+[data-theme="light"] #projects,
+[data-theme="light"] #certificates {
+  background-color: var(--bg-secondary);
 }
 
 /* Light mode scrollbar */
@@ -1324,14 +1331,19 @@ footer {
 
 /* Light mode header scrolled */
 [data-theme="light"] header.scrolled {
-  background-color: rgba(245, 247, 250, 0.82);
+  background-color: rgba(238, 243, 248, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
 
+/* Light mode hero background override */
+[data-theme="light"] .hero {
+  background: linear-gradient(135deg, #eef6ff 0%, #f7fbff 45%, #e8f1fa 100%);
+}
+
 /* Light mode hero ambient glows (subdued) */
 [data-theme="light"] .hero::before {
-  background: radial-gradient(circle, rgba(2, 132, 199, 0.06) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(0, 174, 234, 0.06) 0%, transparent 65%);
 }
 
 [data-theme="light"] .hero::after {
@@ -1344,21 +1356,21 @@ footer {
 }
 
 [data-theme="light"] .btn-secondary {
-  background-color: rgba(15, 23, 42, 0.03);
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  background-color: rgba(31, 56, 88, 0.03);
+  border: 1px solid rgba(31, 56, 88, 0.12);
   color: var(--text-primary);
 }
 
 [data-theme="light"] .btn-secondary:hover {
   border-color: var(--accent);
-  background-color: rgba(2, 132, 199, 0.04);
+  background-color: rgba(0, 174, 234, 0.04);
   color: var(--accent);
 }
 
 /* Light mode skill tags */
 [data-theme="light"] .skill-tag {
-  background-color: rgba(15, 23, 42, 0.03);
-  border: 1px solid rgba(15, 23, 42, 0.1);
+  background-color: rgba(31, 56, 88, 0.03);
+  border: 1px solid rgba(31, 56, 88, 0.1);
   color: var(--text-secondary);
 }
 
@@ -1368,43 +1380,46 @@ footer {
   border-color: transparent;
 }
 
-/* Light mode project / certificate tags */
+/* Light mode project / experience / certificate tags */
 [data-theme="light"] .project-tag,
-[data-theme="light"] .experience-tag {
-  background-color: rgba(2, 132, 199, 0.06);
-  border: 1px solid rgba(2, 132, 199, 0.18);
+[data-theme="light"] .experience-tag,
+[data-theme="light"] .timeline-year,
+[data-theme="light"] .certificate-issuer {
+  background-color: rgba(0, 174, 234, 0.08);
+  border: 1px solid rgba(0, 174, 234, 0.18);
+  color: var(--accent);
 }
 
 [data-theme="light"] .certificate-tag {
-  background-color: rgba(15, 23, 42, 0.04);
-  border: 1px solid rgba(15, 23, 42, 0.1);
+  background-color: rgba(31, 56, 88, 0.04);
+  border: 1px solid rgba(31, 56, 88, 0.1);
   color: var(--text-secondary);
 }
 
 /* Light mode github button */
 [data-theme="light"] .btn-github {
-  background-color: rgba(15, 23, 42, 0.04);
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  background-color: rgba(31, 56, 88, 0.04);
+  border: 1px solid rgba(31, 56, 88, 0.12);
   color: var(--text-secondary);
 }
 
 [data-theme="light"] .btn-github:hover {
-  background-color: rgba(15, 23, 42, 0.08);
-  border-color: rgba(15, 23, 42, 0.2);
+  background-color: rgba(31, 56, 88, 0.08);
+  border-color: rgba(31, 56, 88, 0.2);
   color: var(--text-primary);
 }
 
 /* Light mode form controls */
 [data-theme="light"] .form-control {
-  background-color: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--border);
   color: var(--text-primary);
 }
 
 [data-theme="light"] .form-control:focus {
   background-color: #ffffff;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+  box-shadow: 0 0 0 3px rgba(0, 174, 234, 0.15);
 }
 
 [data-theme="light"] .form-control::placeholder {
@@ -1421,17 +1436,18 @@ footer {
 }
 
 [data-theme="light"] .about-card-wrapper {
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.06), rgba(15, 23, 42, 0.02));
+  background: linear-gradient(135deg, rgba(31, 56, 88, 0.08), rgba(31, 56, 88, 0.02));
 }
 
 [data-theme="light"] .about-card-wrapper::after {
-  border: 1px solid rgba(2, 132, 199, 0.2);
+  border: 1px solid rgba(0, 174, 234, 0.25);
 }
 
 /* Light mode interests list */
 [data-theme="light"] .interests-list li {
-  background-color: rgba(2, 132, 199, 0.06);
-  border: 1px solid rgba(2, 132, 199, 0.18);
+  background-color: rgba(0, 174, 234, 0.08);
+  border: 1px solid rgba(0, 174, 234, 0.18);
+  color: var(--accent);
 }
 
 /* Light mode timeline dot */
@@ -1441,7 +1457,7 @@ footer {
 
 /* Light mode CV box */
 [data-theme="light"] .cv-box {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(248, 250, 252, 0.4));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(238, 243, 248, 0.5));
 }
 
 /* Light mode footer */
@@ -1451,7 +1467,7 @@ footer {
 
 [data-theme="light"] .footer-social-link {
   background-color: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(31, 56, 88, 0.08);
 }
 
 [data-theme="light"] .footer-social-link:hover {
@@ -1467,18 +1483,18 @@ footer {
 
 /* Light mode certificate button */
 [data-theme="light"] .btn-certificate {
-  border: 1px solid rgba(2, 132, 199, 0.25);
+  border: 1px solid rgba(0, 174, 234, 0.25);
   color: var(--accent);
 }
 
 [data-theme="light"] .btn-certificate:hover {
-  background-color: rgba(2, 132, 199, 0.05);
+  background-color: rgba(0, 174, 234, 0.05);
   border-color: var(--accent);
 }
 
 /* Light mode details button */
 [data-theme="light"] .btn-details {
-  border: 1px solid rgba(2, 132, 199, 0.25);
+  border: 1px solid rgba(0, 174, 234, 0.25);
   color: var(--accent);
 }
 
