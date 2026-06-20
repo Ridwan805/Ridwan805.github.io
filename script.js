@@ -4,6 +4,22 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // 0. Theme Toggle Handler
+  const themeToggle = document.getElementById('theme-toggle');
+  
+  // Load saved theme or default to dark
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  }
+
   // 1. Sticky Glass Header Scroll Transition
   const header = document.getElementById('header');
   const toggleHeaderClass = () => {
